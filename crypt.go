@@ -1,3 +1,10 @@
+/*
+Package crypt allows encryption of data using AES.
+
+You should provide a passphrase and a salt value in order to encrypt or decrypt data. Both values should be the same for a given data item.
+
+The salt value should be randomly generated for every item that you wish to encrypt. Function RamdomSalt can be used for that purpose.
+*/
 package crypt
 
 import (
