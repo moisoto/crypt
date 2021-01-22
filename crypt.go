@@ -33,7 +33,7 @@ func RandomSalt(size int) (salt []byte, err error) {
 	return salt, nil
 }
 
-// Encrypt takes some data and creates cipherText using AES 
+// Encrypt takes some data and creates cipherText using AES
 // A passphrase and a ramdon salt must be provided along the data
 // The AES Cipher is created using a key derived from the passphrase and the salt value using the standard PBKDF2 go library
 func Encrypt(data []byte, passphrase string, salt []byte) (cipherText []byte, err error) {
