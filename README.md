@@ -1,3 +1,7 @@
+[![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg?color=%237fd5ea)](http://golang.org) 
+[![GoReportCard](https://goreportcard.com/badge/github.com/moisoto/crypt)](https://goreportcard.com/report/github.com/moisoto/crypt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # crypt
 A Simple Crypto Library
 
@@ -10,6 +14,3 @@ Not intended as a full-fledge library, just some place to put functions I use fo
 ### For a good crypto library for go:
 
 When browsing the comment section on Nic's Blog Post, I stumbled with [Minio's SIO Package](https://github.com/minio/sio) for DARE encryption on go. If you need a nicely done crypto library for go, please check it out at https://github.com/minio/sio
-
-[![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg?color=%237fd5ea)](http://golang.org) 
-[![GoReportCard](https://goreportcard.com/badge/github.com/moisoto/crypt)](https://goreportcard.com/report/github.com/moisoto/crypt)
