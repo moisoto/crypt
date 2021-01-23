@@ -1,4 +1,5 @@
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg?color=%237fd5ea)](http://golang.org) 
+[![Go Reference](https://pkg.go.dev/badge/github.com/moisoto/xlsrpt.svg)](https://pkg.go.dev/github.com/moisoto/crypt)
 [![GoReportCard](https://goreportcard.com/badge/github.com/moisoto/crypt)](https://goreportcard.com/report/github.com/moisoto/crypt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
