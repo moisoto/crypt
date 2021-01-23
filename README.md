@@ -3,6 +3,9 @@
 [![GoReportCard](https://goreportcard.com/badge/github.com/moisoto/crypt)](https://goreportcard.com/report/github.com/moisoto/crypt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[![Go Version](https://img.shields.io/github/go-mod/go-version/moisoto/crypt)](https://golang.org)
+[![Release](https://img.shields.io/github/v/tag/moisoto/crypt?label=Release&sort=semver)](https://github.com/moisoto/crypt/releases/latest)
+
 # crypt
 A Simple Crypto Library
 
