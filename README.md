@@ -1,7 +1,7 @@
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg?color=%237fd5ea)](http://golang.org) 
 [![Go Reference](https://pkg.go.dev/badge/github.com/moisoto/xlsrpt.svg)](https://pkg.go.dev/github.com/moisoto/crypt)
 [![GoReportCard](https://goreportcard.com/badge/github.com/moisoto/crypt)](https://goreportcard.com/report/github.com/moisoto/crypt)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://pkg.go.dev/github.com/moisoto/crypt?tab=licenses)
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/moisoto/crypt)](https://golang.org)
 [![Release](https://img.shields.io/github/v/tag/moisoto/crypt?label=Release&sort=semver)](https://github.com/moisoto/crypt/releases/latest)
@@ -23,9 +23,9 @@ Not intended as a full-fledge library, just some place to put functions I use fo
 
 A good practice is to use different Salt values for each encripted item. 
 
-For example if you are encrypting user passwords you should use a different and random salt value for each user. You can store the salt value along with the username and encrypted passwords. You can use the function `RandomSalt()` for this, a size of 32 bytes or more is recommended.
+For example if you are encrypting user passwords you should use a different (and random) salt value for each user. You can store the salt value along with the username and encrypted passwords. You can use the function `RandomSalt()` for this. A size of 32 bytes or more is recommended.
 
-The passphrase (also called sometimes pepper) can be the same for all items, and must not be stored along with the salt and encrypted data. Your code is a good place to put them. It can be as simple as a human generated string (hence the term passphrase), but you can also use CSPRNG data. The `crypt.RandomSalt()` function can also be used for this:
+The passphrase (also sometimes called pepper) can be the same for all items, and must not be stored along with the salt and encrypted data. Your code is a good place to put them. It can be as simple as a human generated string (hence the term passphrase), but you can also use CSPRNG data. The `crypt.RandomSalt()` function can also be used for this:
 
 ```go
 // A Simple Utility to generate a CSPRNG based Passphrase
