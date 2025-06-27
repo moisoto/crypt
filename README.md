@@ -51,50 +51,65 @@ func main() {
 
 ### Crypt and Decrypt
 
-A simple code snippet with crypt and decrypt example:
+Here's a simple program that shows how to crypt and decrypt a message:
+
 ```go
-// Salt must be Ramdom and at least 32 bytes in size
-// For example in a username/password database you should generate a
-// random salt for each user and store it along the ciphered password
-salt, err := crypt.RandomSalt(32)
-if err != nil {
-  panic(err)
+package main
+
+import (
+	"encoding/base64"
+	"encoding/hex"
+	"fmt"
+
+	"github.com/moisoto/crypt"
+)
+
+func main() {
+
+	// Salt must be Ramdom and at least 32 bytes in size
+	// For example in a username/password database you should generate a
+	// random salt for each user and store it along the ciphered password
+	salt, err := crypt.RandomSalt(32)
+	if err != nil {
+		panic(err)
+	}
+
+	// You'll usually store your salt as a hex string
+	hexSalt := hex.EncodeToString(salt)
+
+	// Your passphrase can be a random string and should not be stored on the database
+	// It would be contained in your code ideally.
+	// Here we generated one using openssl by executing: openssl rand -base64 32 
+	phrase := "dWJLXM9Eo3Nj5IzUpWmQuAtsdnaYfrsIkVrhaE1ESJU="
+
+	// Something you want to cipher
+	originalText := "My Secret Message"
+
+	// A byte array is returned
+	cipherBytes, err := crypt.Encrypt([]byte(originalText), phrase, salt)
+	if err != nil {
+		panic(err)
+	}
+
+	// Can be encoded as base64 for readability
+	cipherText := base64.StdEncoding.EncodeToString(cipherBytes)
+
+	// Or if you need to use it on a URL
+	cipherURLText := base64.URLEncoding.EncodeToString(cipherBytes)
+
+	fmt.Println("Hex Salt:", hexSalt)
+	fmt.Println("Cipher Text:", cipherText)
+	fmt.Println("URL Encoded:", cipherURLText)
+
+	// A byte array is returned
+	plainBytes, err := crypt.Decrypt(cipherBytes, phrase, salt)
+	if err != nil {
+		panic(err)
+	}
+
+	decryptedText := string(plainBytes)
+	fmt.Println("Decrypted Text:", decryptedText)
 }
-
-// You'll usually store your salt as a hex string
-hexSalt := hex.EncodeToString(salt)
-  
-// Your passphrase can be a random string and should not be stored on the database
-// It would be contained in your code ideally.
-phrase := "dWJLXM9Eo3Nj5IzUpWmQuAtsdnaYfrsIkVrhaE1ESJU="
-  
-// Something you want to cipher
-originalText := "My Secret Message"
-
-// A byte array is returned
-cipherBytes, err := crypt.Encrypt([]byte(originalText), phrase, salt)
-if err != nil {
-  panic(err)
-}
-
-// Can be encoded as base64 for readability 
-cipherText := base64.StdEncoding.EncodeToString(cipherBytes)
-  
-// Or if you need to use it on a URL
-cipherURLText := base64.URLEncoding.EncodeToString(cipherBytes)
-
-fmt.Println("Hex Salt:", hexSalt)
-fmt.Println("Cipher Text:", cipherText)
-fmt.Println("URL Encoded:", cipherURLText)
-
-// A byte array is returned
-plainBytes, err := crypt.Decrypt(cipherBytes, phrase, salt)
-if err != nil {
-  panic(err)
-}
-
-decryptedText := string(plainBytes)
-fmt.Println("Decrypted Text:", decryptedText)
 ```
 
 ### If you need a more complete crypto library for go:
